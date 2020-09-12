@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Test</title>
+  <style>
+    body, html {
+      width: 100vw;
+      height: 100vh;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+<canvas id="canvas" widht="100wv" height="100vh"></canvas>
+<script>
+  var canvas = document.querySelector('canvas');
+  var c = canvas.getContext('2d');
+
+  document.body.style.margin = 0;
+  document.documentElement.style.overflow = "hidden";
+
+  canvas.height = innerHeight;
+  canvas.width = innerWidth;
+
+  addEventListener('resize', function () {
+    canvas.height = innerHeight;
+    canvas.width = innerWidth;
+  });
+  // hearts
+function draw() {
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext){
+    var ctx = canvas.getContext('2d');
+
+    // Cubic curves example
+    ctx.beginPath();
+    ctx.moveTo(75,40);
+    ctx.bezierCurveTo(75,37,70,25,50,25);
+    ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
+    ctx.bezierCurveTo(20,80,40,102,75,120);
+    ctx.bezierCurveTo(110,102,130,80,130,62.5);
+    ctx.bezierCurveTo(130,62.5,130,25,100,25);
+    ctx.bezierCurveTo(85,25,75,37,75,40);
+    ctx.fillRect(20,20,20,20);
+    ctx.moveTo(100,100);
+    ctx.bezierCurveTo(75,37,70,25,50,25);
+    ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
+    ctx.bezierCurveTo(20,80,40,102,75,120);
+    ctx.bezierCurveTo(110,102,130,80,130,62.5);
+    ctx.bezierCurveTo(130,62.5,130,25,100,25);
+    ctx.bezierCurveTo(85,25,75,37,75,40);
+    ctx.fillRect(10, 10, 10, 10);
+  }
+}
+draw()
+</script>
+</body>
+</html>
