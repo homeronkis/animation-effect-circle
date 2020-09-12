@@ -3,7 +3,7 @@ import mojs from "@mojs/core";
 
 // import MojsPlayer from "@mojs/player";
 
-// import "./styles.css";
+import "./index.css";
 
 export default class App extends Component {
 
@@ -24,8 +24,8 @@ export default class App extends Component {
     var staggerShapes = mojs.stagger(mojs.ShapeSwirl);
     const CUSTOM_PROPERTIES = {
       Parent: '#hearts',
-      y: {0: 0},
-      x: {0: 0},
+      y: 'rand(10, 50 )',
+      x: 'rand(40, 100)',
       shape: 'custom',
       fill: 'black',
       draw(el, props) {
@@ -36,26 +36,53 @@ export default class App extends Component {
     const HEART_OPTS = {
       customProperties: CUSTOM_PROPERTIES,
       fill: 'black',
-      x: {40:100},
-      y: {150:-300},
+      x: {40: 100},
+      y: {180: -300},
       shape: 'custom',
       direction: 1,
-      radius: 'stagger(15, 20)',
+      radius: 'stagger(20, 30)',
       swirlFrequency: 4,
       scale: {1: 'rand(0.1, 0.5)'},
       duration: 2800,
 
     }
     const firstGroup = new staggerShapes({
-      quantifier: 5,
+      quantifier: 4,
       ...HEART_OPTS,
       y: {300: -450},
       degreeShift: 1
 
     })
+    const secondGroup = new staggerShapes({
+      quantifier: 3,
+      ...HEART_OPTS,
+      y: {330: -410},
+      degreeShift: 2
 
+    })
+    const fourthGroup = new staggerShapes({
+      quantifier: 2,
+      ...HEART_OPTS,
+      y: {360: -460},
+      degreeShift: 1
+
+    })
+    const fiveGroup = new staggerShapes({
+      quantifier: 3,
+      ...HEART_OPTS,
+      y: {250: -500},
+      degreeShift: 1
+
+    })
+    const sixthGroup = new staggerShapes({
+      quantifier: 3,
+      ...HEART_OPTS,
+      y: {280: -420},
+      degreeShift: 1
+
+    })
     const timeline = new mojs.Timeline();
-    timeline.add(firstGroup).play();
+    timeline.add(firstGroup, secondGroup, fourthGroup, fiveGroup, sixthGroup).play();
     // new MojsPlayer({add: timeline})
   }
 
