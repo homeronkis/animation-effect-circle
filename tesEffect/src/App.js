@@ -21,6 +21,7 @@ export default class App extends Component {
 
 
     mojs.addShape('custom', Heart);
+    var staggerShapes = mojs.stagger(mojs.ShapeSwirl);
     const CUSTOM_PROPERTIES = {
       Parent: '#hearts',
       y: {0: 0},
@@ -35,40 +36,26 @@ export default class App extends Component {
     const HEART_OPTS = {
       customProperties: CUSTOM_PROPERTIES,
       fill: 'black',
-      y: {0: 0},
-      x: {0: 0},
+      x: {40:100},
+      y: {150:-300},
       shape: 'custom',
       direction: 1,
-      radius: 100,
+      radius: 'stagger(15, 20)',
       swirlFrequency: 4,
-      duration: 2500,
+      scale: {1: 'rand(0.1, 0.5)'},
+      duration: 2800,
 
     }
-    const firstGroup = new mojs.ShapeSwirl({
+    const firstGroup = new staggerShapes({
+      quantifier: 5,
       ...HEART_OPTS,
-      y: {150: -400},
-      degreeShift: 10,
+      y: {300: -450},
+      degreeShift: 1
 
-    }).then({
-      ...HEART_OPTS,
-      y: {500: -400},
-      degreeShift: 10,
-
-    })
-    const secondHeart = new mojs.ShapeSwirl({
-      ...HEART_OPTS,
-      y: {190: -400},
-      degreeShift: 10,
-
-    }).then({
-      ...HEART_OPTS,
-        y: {530: -450},
-      degreeShift: 14,
-      direction: 1
     })
 
     const timeline = new mojs.Timeline();
-    timeline.add(firstGroup, secondHeart).play();
+    timeline.add(firstGroup).play();
     // new MojsPlayer({add: timeline})
   }
 
