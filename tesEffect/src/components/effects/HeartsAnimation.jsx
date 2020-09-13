@@ -19,76 +19,64 @@ export default class App extends Component {
     var staggerShapes = mojs.stagger(mojs.ShapeSwirl);
     const CUSTOM_PROPERTIES = {
       Parent: '#hearts',
-      y: 'rand(10, 50 )',
-      x: 'rand(40, 100)',
       shape: 'custom',
-      fill: 'black',
       draw(el, props) {
-
       }
 
     }
     const HEART_OPTS = {
       customProperties: CUSTOM_PROPERTIES,
       fill: '#3C5E82',
-      x: {40: 140},
-      y: {180: -300},
+      y: {200: -500},
       shape: 'custom',
-      direction: 1,
-      radius: 'stagger(20, 30)',
+      scale: {1: 1},
+      duration: 5800,
+      radius: 30,
       swirlFrequency: 4,
-      scale: {1: 'rand(0.1, 0.5)'},
-      duration: 2800,
 
     }
     const firstGroup = new staggerShapes({
-      quantifier: 3,
+      y: 'stagger(300, rand(0, 5))',
+      x: 'stagger(-80, rand(0, 5))',
+      quantifier: 10,
+      speed: ['rand(1.5, 2)'],
       ...HEART_OPTS,
-      y: {300: -450},
-      degreeShift: 2,
-      direction: 1
+      swirlFrequency: [
+        'rand(3, 4.5)'
+      ],
+      direction: [
+        'rand(2, 3)'
+      ],
     })
     const secondGroup = new staggerShapes({
-      quantifier: 2,
+      y: 'stagger(200, rand(0, 5))',
+      x: 'stagger(-50, rand(0, 5))',
+      quantifier: 10,
+      speed: ['rand(1.8, 2.5)'],
       ...HEART_OPTS,
-      y: {280: -470},
-      degreeShift: 2,
-
+      swirlFrequency: [
+        'rand(3, 4.5)'
+      ],
+      direction: [
+        'rand(2, 4)'
+      ],
     })
-    const fourthGroup = new staggerShapes({
-      quantifier: 2,
+    const thirdGroup = new staggerShapes({
+      y: 'stagger(100, rand(0, 5))',
+      x: 'stagger(-40, rand(0, 5))',
+      quantifier: 10,
+      speed: ['rand(2, 3)'],
       ...HEART_OPTS,
-      y: {150: -490},
-      degreeShift: 3,
-
-    })
-    const fiveGroup = new staggerShapes({
-      quantifier: 3,
-      ...HEART_OPTS,
-      y: {120: -515},
-      degreeShift: -1,
-
-    })
-    const sixthGroup = new staggerShapes({
-      quantifier: 3,
-      ...HEART_OPTS,
-      y: {90: -470},
-      degreeShift: 1,
-    })
-    const eightGroup = new staggerShapes({
-      quantifier: 2,
-      ...HEART_OPTS,
-      y: {80: -480},
-      degreeShift: 1,
-    })
-    const seventhGroup = new staggerShapes({
-      quantifier: 2,
-      ...HEART_OPTS,
-      y: {70: -500},
-      degreeShift: -5,
+      swirlFrequency: [
+        'rand(3, 4.5)'
+      ],
+      direction: [
+        'rand(2, 3.5)'
+      ],
     })
     const timeline = new mojs.Timeline();
-    timeline.add(firstGroup, secondGroup, fourthGroup, fiveGroup, sixthGroup, eightGroup, seventhGroup).play();
+    timeline.add(firstGroup, secondGroup, thirdGroup
+    ).play();
     // new MojsPlayer({add: timeline})
   }
 
