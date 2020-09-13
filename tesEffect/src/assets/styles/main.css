@@ -28,8 +28,9 @@ span {
 }
 p {
   color: #ffffff;
+  width: 100%;
+  left: 168px;
   position: absolute;
-  left: 186px;
   font-size: 1.2em;
   letter-spacing: 1px;
   top: 200px;

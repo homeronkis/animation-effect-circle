@@ -4,7 +4,7 @@ import HeartsAnimation from "../components/effects/HeartsAnimation";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faMicrophone} from '@fortawesome/free-solid-svg-icons'
 
-function Home () {
+const Home  = () => {
   return (
     <Layout>
       <HeartsAnimation />
