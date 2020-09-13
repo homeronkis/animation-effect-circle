@@ -27,55 +27,53 @@ export default class App extends Component {
     const HEART_OPTS = {
       customProperties: CUSTOM_PROPERTIES,
       fill: '#3C5E82',
-      y: {200: -500},
+      y: {300: -500},
+      x: {[-50]: 0},
       shape: 'custom',
       scale: {1: 1},
-      duration: 5800,
+      duration: 6000,
       radius: 30,
-      swirlFrequency: 4,
+      swirlFrequency: 3,
 
     }
     const firstGroup = new staggerShapes({
-      y: 'stagger(300, rand(0, 5))',
-      x: 'stagger(-80, rand(0, 5))',
-      quantifier: 10,
-      speed: ['rand(1.5, 2)'],
       ...HEART_OPTS,
+      y: {250: -500},
+      quantifier: 10,
+      speed: ['rand(2, 2.9)'],
       swirlFrequency: [
-        'rand(3, 4.5)'
+        'rand(3, 2.8)'
       ],
       direction: [
-        'rand(2, 3)'
+        'rand(1, 2.2)'
       ],
     })
     const secondGroup = new staggerShapes({
-      y: 'stagger(200, rand(0, 5))',
-      x: 'stagger(-50, rand(0, 5))',
-      quantifier: 10,
-      speed: ['rand(1.8, 2.5)'],
       ...HEART_OPTS,
+      y: {300: -500},
+      quantifier: 10,
+      speed: ['rand(1.8, 3)'],
       swirlFrequency: [
         'rand(3, 4.5)'
       ],
       direction: [
-        'rand(2, 4)'
+        'rand(1.2,2.5)'
       ],
     })
     const thirdGroup = new staggerShapes({
-      y: 'stagger(100, rand(0, 5))',
-      x: 'stagger(-40, rand(0, 5))',
-      quantifier: 10,
-      speed: ['rand(2, 3)'],
       ...HEART_OPTS,
+      y: {300: -500},
+      quantifier: 10,
+      speed: ['rand(2, 3.2)'],
       swirlFrequency: [
-        'rand(3, 4.5)'
+        'rand(2.9, 4)'
       ],
       direction: [
-        'rand(2, 3.5)'
+        'rand(2, 2.3)'
       ],
     })
     const timeline = new mojs.Timeline();
-    timeline.add(firstGroup, secondGroup, thirdGroup
+    timeline.add(firstGroup,secondGroup, thirdGroup
     ).play();
     // new MojsPlayer({add: timeline})
   }
